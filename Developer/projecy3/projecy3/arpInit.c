@@ -30,5 +30,5 @@ syscall arpInit(void) {
   
   ready(create ((void *) arpDaemon, ARP_THR_STK, ARP_THR_PRIO, "arpDaemon", 0), RESCHED_NO);
   
-  return 1;
+  return OK;
 }

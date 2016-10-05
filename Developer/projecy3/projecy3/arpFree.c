@@ -26,5 +26,5 @@ syscall arpFree(struct arpEntry *entry) {
   bzero(entry, sizeof(struct arpEntry));
   entry->state = ARP_FREE;
   ARP_TRACE("Freed entry %d", ((int)entry - (int)arptab) / sizeof(struct arpEntry));
-  return 1;
+  return OK;
 }

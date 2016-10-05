@@ -26,5 +26,5 @@ thread arpDaemon(void) {
       continue;
     }
   }
-  return 1;
+  return OK;
 }
