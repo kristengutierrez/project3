@@ -6,10 +6,19 @@
 //  Copyright © 2016 koz. All rights reserved.
 //
 
-#include <stdio.h>
 #include <stddef.h>
 #include <mailbox.h>
 #include <network.h>
+
+#ifdef TRACE_ARP
+#include <stdio.h>
+#define ARP_TRACE(...) {\
+        fprintf(TRACE_ARP, "%s:%d (%d) ", __FILE__, __LINE__, gettid()); \
+        fprintf(TRACE_ARP, __VA_ARGS__); \
+        fprintf(TRACE_ARP, "\n"); }
+#else
+#define ARP_TRACE(...)
+#endif
 
 #define ARP_HWTYPE_ETHERNET 1
 #define ARP_PRTYPE_IPv4 ETHER_TYPE_IPv4
