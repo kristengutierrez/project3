@@ -12,6 +12,8 @@
 		17EFBC151DA56F590067689B /* arpInit.c in Sources */ = {isa = PBXBuildFile; fileRef = 17EFBC141DA56F590067689B /* arpInit.c */; };
 		17EFBC171DA572830067689B /* arpAlloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 17EFBC161DA572830067689B /* arpAlloc.c */; };
 		17EFBC191DA576F10067689B /* arpFree.c in Sources */ = {isa = PBXBuildFile; fileRef = 17EFBC181DA576F10067689B /* arpFree.c */; };
+		17EFBC1B1DA588B20067689B /* arpGetEntry.c in Sources */ = {isa = PBXBuildFile; fileRef = 17EFBC1A1DA588B20067689B /* arpGetEntry.c */; };
+		17EFBC1D1DA597DA0067689B /* arpLookup.c in Sources */ = {isa = PBXBuildFile; fileRef = 17EFBC1C1DA597DA0067689B /* arpLookup.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +35,8 @@
 		17EFBC141DA56F590067689B /* arpInit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = arpInit.c; sourceTree = "<group>"; };
 		17EFBC161DA572830067689B /* arpAlloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = arpAlloc.c; sourceTree = "<group>"; };
 		17EFBC181DA576F10067689B /* arpFree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = arpFree.c; sourceTree = "<group>"; };
+		17EFBC1A1DA588B20067689B /* arpGetEntry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = arpGetEntry.c; sourceTree = "<group>"; };
+		17EFBC1C1DA597DA0067689B /* arpLookup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = arpLookup.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				17435CAA1DA44B5000AD27A4 /* arp.h */,
+				17EFBC1A1DA588B20067689B /* arpGetEntry.c */,
+				17EFBC1C1DA597DA0067689B /* arpLookup.c */,
 				17EFBC121DA56D790067689B /* arpDaemon.c */,
 				17EFBC141DA56F590067689B /* arpInit.c */,
 				17EFBC161DA572830067689B /* arpAlloc.c */,
@@ -132,6 +138,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				17EFBC191DA576F10067689B /* arpFree.c in Sources */,
+				17EFBC1D1DA597DA0067689B /* arpLookup.c in Sources */,
+				17EFBC1B1DA588B20067689B /* arpGetEntry.c in Sources */,
 				17435CAB1DA44B5000AD27A4 /* arp.h in Sources */,
 				17EFBC171DA572830067689B /* arpAlloc.c in Sources */,
 				17EFBC151DA56F590067689B /* arpInit.c in Sources */,
