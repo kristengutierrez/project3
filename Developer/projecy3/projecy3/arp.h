@@ -7,7 +7,6 @@
 //
 
 #include <stddef.h>
-#include <mailbox.h>
 #include <network.h>
 
 #ifdef TRACE_ARP
@@ -72,7 +71,6 @@ struct arpEntry {
 
 extern struct arpEntry arptab[ARP_NENTRY];
 
-extern mailbox arpqueue;
 
 struct arpEntry *arpAlloc(void);
 thread arpDaemon(void);
