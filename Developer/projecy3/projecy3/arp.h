@@ -25,7 +25,7 @@
 #define ARP_OP_RQST 1
 #define ARP_OP_REPLY 2
 
-#define ARP_CONST_HDR_LEN 6
+#define ARP_CONST_HDR_LEN 8
 
 #define ARP_NENTRY 32
 #define ARP_FREE 0
@@ -39,9 +39,6 @@
 
 #define ARP_TTL_UNRESOLVED 5
 #define ARP_TTL_RESOLVED 300
-
-#define ARP_THR_PRIO NET_THR_PRIO
-#define ARP_THR_STK NET_THR_STK
 
 #define ARP_ADDR_SHA(arp) 0
 #define ARP_ADDR_SPA(arp) (arp->hwalen)
@@ -65,12 +62,10 @@ struct arpEntry {
   struct netaddr hwaddr;
   struct netaddr praddr;
   uint expires;
-  tid_typ waiting[ARP_NTHRWAIT];
   int count;
 };
 
 extern struct arpEntry arptab[ARP_NENTRY];
-
 
 struct arpEntry *arpAlloc(void);
 thread arpDaemon(void);

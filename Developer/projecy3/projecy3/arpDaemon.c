@@ -8,7 +8,6 @@
 
 #include <stddef.h>
 #include "arp.h"
-#include <mailbox.h>
 
 thread arpDaemon(void) {
   struct packet *pkt = NULL;

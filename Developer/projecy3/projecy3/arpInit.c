@@ -13,9 +13,8 @@
 #include <thread.h>
 
 struct arpEntry arptab[ARP_NENTRY];
-mailbox arpqueue;
 
-syscall arpInit(void) {
+void arpInit(void) {
   int i = 0;
   
   for (i = 0; i < ARP_NENTRY; i++) {
