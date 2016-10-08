@@ -10,6 +10,10 @@
 #include "arp.h"
 #include <network.h>
 #include "semaphore.h"
+#include <stdlib.h>
+
+
+struct arptab = malloc (ARP_NENTRY*sizeof(arpEntry));
 
 // unsure of how to make semaphore
 semaphore *mutex = make_semaphore(1);
