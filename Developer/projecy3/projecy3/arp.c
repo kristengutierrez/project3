@@ -13,8 +13,9 @@
 #include <stdlib.h>
 
 
-struct arptab = malloc (ARP_NENTRY*sizeof(arpEntry));
+struct arptab = malloc (ARP_NENTRY * sizeof(struct arpEntry));
 
+bzero((void *)arptab, ARP_NENTRY * sizeof(struct arpEntry));
 // unsure of how to make semaphore
 semaphore *mutex = make_semaphore(1);
 syscall wait(mutex);
