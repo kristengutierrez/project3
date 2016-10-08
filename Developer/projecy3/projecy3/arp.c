@@ -35,7 +35,9 @@ egram = (struct ethergram *)packet; //can now access fields of ethernet frame
 ntohs(egram->type);
 //if egram->type == ETYPE_ARP, get destination mac address (dst)
 //set up arpReceive
-
+void arpRecv(struct packet *pkt) {
+  
+}
 
 //sending data to the network, don't know how to define arpgram
 //is arpgram same as arppacket?
