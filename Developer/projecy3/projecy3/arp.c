@@ -13,7 +13,6 @@
 #include <stdlib.h>
 
 
-struct arptab = malloc (ARP_NENTRY * sizeof(struct arpEntry));
 
 bzero((void *)arptab, ARP_NENTRY * sizeof(struct arpEntry));
 // unsure of how to make semaphore
@@ -22,6 +21,11 @@ syscall wait(mutex);
 //don't know what to put in arp table
 struct arptab *arptable = NULL;
 syscall signal(mutex);
+
+
+
+
+
 
 //is this supposed to go in netInit?
 arpDaemonID = create((void *)arpDaemon, INITSTK, 3, "ARP_DAEMON", 0);
@@ -50,8 +54,29 @@ void arpRecv(struct packet *pkt) {
 write(ETH0, (uchar *)buf, sizeof(struct ethergram) + sizeof(struct arpgram));
 
 //to access mac address of device
-uchar buf[ETH_ADDR_LEN];
-devcall control(ETH0, ETH_CTRL_GET_MAC, (ulong)buf, 0);
+uchar mac[ETH_ADDR_LEN];
+devcall control(ETH0, ETH_CTRL_GET_MAC, (ulong)mac, 0);
 
 //to get IP address of host
 nvramGet("lan_ipaddr\0");
+
+
+devcall checkARPTableForIPAddress(uchar *ipaddr, uchar *mac) {
+  for int i = 0, i < ARP_NENTRY, i++ {
+    if strcmp(ipaddr,arptab[i].ipaddress) {
+      *mac = arptab[i].macaddress;
+      return OK;
+    }
+  }
+      return SYSERR;
+}
+
+devcall arpResolve (uchar *ipaddr, uchar *mac) {
+  if checkARPTableForIPAddress(ipaddr, mac) == OK {
+    return OK;
+  }
+  //broadcast arp packet to network
+ }
+
+//needs to block and try 3 times to resolve address at 1 sec intervals
+

@@ -58,22 +58,12 @@ struct arpPkt {
 
 struct arpEntry {
   ushort state;
-  struct netif *nif;
-  struct netaddr hwaddr;
-  struct netaddr praddr;
+  char ipaddress;
+  char macaddress;
   uint expires;
   int count;
 };
 
 extern struct arpEntry arptab[ARP_NENTRY];
 
-struct arpEntry *arpAlloc(void);
-thread arpDaemon(void);
-struct arpEntry *arpGetEntry(struct netaddr *);
-syscall arpFree(struct arpEntry *);
-syscall arpInit(void);
-syscall arpLookup(struct netif *, struct netaddr *, struct netaddr *);
-syscall arpNotify(struct arpEntry *, message);
-syscall arpRecv(struct packet *);
-syscall arpSendRqst(struct arpEntry *);
-syscall arpSendReply(struct packet *);
+
