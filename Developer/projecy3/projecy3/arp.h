@@ -50,8 +50,8 @@
 struct arpPkt {
   ushort hwtype;
   ushort prtype;
-  uchar hwalen;
-  uchar pralen;
+  uchar hwalen[ETH_ADDR_LEN];
+  uchar pralen[IP_ADDR_LEN];
   ushort op;
   uchar addrs[1];
 };

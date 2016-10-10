@@ -64,8 +64,8 @@ nvramGet("lan_ipaddr\0");
 devcall checkARPTableForIPAddress(uchar *ipaddr, uchar *mac) {
   for int i = 0, i < ARP_NENTRY, i++ {
     if strcmp(ipaddr,arptab[i].ipaddress) {
-      *mac = arptab[i].macaddress; //she said something about using memcpy here
-      //memcpy(mac, arptab[i].macaddress, ETH_ADDR_LEN)
+      //*mac = arptab[i].macaddress;
+      memcpy(mac, &arptab[i].macaddress, ETH_ADDR_LEN);
       return OK;
     }
   }
@@ -78,6 +78,12 @@ devcall arpResolve (uchar *ipaddr, uchar *mac) {
   }
   //broadcast arp packet to network
   struct arpPkt aPkt;
+  if arpPkt.op == 1 {
+    //arp request
+  }
+  if arpPkt.op == 2 {
+    //arp reply
+  }
   
  }
 
