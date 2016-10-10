@@ -16,11 +16,11 @@
 
 bzero((void *)arptab, ARP_NENTRY * sizeof(struct arpEntry));
 // unsure of how to make semaphore
-semaphore *mutex = make_semaphore(1);
-syscall wait(mutex);
+//semaphore *mutex = make_semaphore(1);
+//syscall wait(mutex);
 //don't know what to put in arp table
 struct arptab *arptable = NULL;
-syscall signal(mutex);
+//syscall signal(mutex);
 
 
 
@@ -64,7 +64,8 @@ nvramGet("lan_ipaddr\0");
 devcall checkARPTableForIPAddress(uchar *ipaddr, uchar *mac) {
   for int i = 0, i < ARP_NENTRY, i++ {
     if strcmp(ipaddr,arptab[i].ipaddress) {
-      *mac = arptab[i].macaddress;
+      *mac = arptab[i].macaddress; //she said something about using memcpy here
+      //memcpy(mac, arptab[i].macaddress, ETH_ADDR_LEN)
       return OK;
     }
   }
@@ -76,6 +77,8 @@ devcall arpResolve (uchar *ipaddr, uchar *mac) {
     return OK;
   }
   //broadcast arp packet to network
+  struct arpPkt aPkt;
+  
  }
 
 //needs to block and try 3 times to resolve address at 1 sec intervals

@@ -58,8 +58,8 @@ struct arpPkt {
 
 struct arpEntry {
   ushort state;
-  char ipaddress;
-  char macaddress;
+  uchar ipaddress[IP_ADDR_LEN];
+  uchar macaddress[ETH_ADDR_LEN];
   uint expires;
   int count;
 };
